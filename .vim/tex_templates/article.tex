@@ -1,0 +1,27 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%:p:t")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+
+
+\documentclass[english]{article}
+\usepackage[latin9]{inputenc}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage{subfigure}
+\usepackage[english]{babel}
+\usepackage{braket}
+\usepackage{hyperref}
+\newcommand{\bibliographytext}{References}
+
+\begin{document}
+\title{<+Title+>}
+\author{Stuart Thomas}
+\date{!comp!strftime("%B %e, %Y")!comp!}
+\maketitle
+<++>
+\end{document}
