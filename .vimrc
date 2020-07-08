@@ -56,8 +56,9 @@ endif
 
 "Plugins
 call plug#begin('~/.vim/plugged')
-  Plug 'cjrh/vim-conda'
+  "Plug 'cjrh/vim-conda'
   Plug 'vim-latex/vim-latex'
+  Plug 'stuartthomas25/vim-conda'
   Plug 'terryma/vim-multiple-cursors'
   "Plug 'davidhalter/jedi-vim'
   "Plug 'zchee/deoplete-jedi'
@@ -85,7 +86,10 @@ let g:tex_flavor='latex'
 " let g:Tex_CompileRule_pdf='latexmk -pdf; latex -c'
 set iskeyword+=:
 
-cd ~/Desktop
+if system('hostname -s')=="Nala\n"
+    cd ~/Desktop
+endif
+
 set autochdir
 function! InsertFigure(name,path)
     let l:images_path = 'imgs'
