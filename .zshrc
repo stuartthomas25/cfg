@@ -136,4 +136,4 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # The original version is saved in .zprofile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
 export PATH
-alias config='/usr/bin/git --git-dir=/Users/Stuart/.cfg/ --work-tree=/Users/Stuart'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
