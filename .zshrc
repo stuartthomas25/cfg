@@ -136,8 +136,12 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # The original version is saved in .zprofile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
 export PATH
+<<<<<<< HEAD
 alias config='/usr/bin/git --git-dir=/Users/Stuart/.cfg/ --work-tree=/Users/Stuart'
 
 alias ..='cd ..'
 alias lt='ls -ltr'
 alias hp='htop -d 100'
+=======
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+>>>>>>> c71f45adcb31bd5aec562a391987014c2c0894bc
