@@ -1,5 +1,5 @@
 channels:
   - conda-forge
-  - dsdale24
   - defaults
 ssl_verify: true
+channel_priority: strict

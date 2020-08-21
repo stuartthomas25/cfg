@@ -267,4 +267,10 @@ ctrl + alt - v : yabai -m window --toggle topmost
 ctrl + alt - g : yabai -m space --layout bsp
 ctrl + alt - w : yabai -m space --layout float
 
-# cmd + alt + delete : sleep
+ctrl + alt - backspace : pmset displaysleepnow
+ctrl + alt - delete : pmset sleepnow
+ctrl + alt - m : /Users/Stuart/bin/rotate_display
+#
+#
+#
+#

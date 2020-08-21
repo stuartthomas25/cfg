@@ -13,6 +13,7 @@ catch
 endtry
 
 set foldmethod=indent
+set nofoldenable
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 set lazyredraw
@@ -51,7 +52,7 @@ endfun
 if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
     autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python' shellescape(@%, 1)<CR>
-    autocmd FileType tex map <buffer> <leader>r :w<CR><leader>ll
+
 endif
 
 "Plugins
@@ -122,8 +123,6 @@ command! -nargs=* Fig call InsertFigure(<f-args>)
 command! -nargs=1 Texn call NewTexFile(<f-args>)
 
 " autocmd FileType tex map <buffer> <leader>r :w<CR>:exec '!latexmk -pdf | !latexmk -c'
-map <buffer> <leader>R :wa<CR>:exec '!python' g:exec_file<CR>
-map <buffer> <leader>sR :let g:exec_file=expand('%:p')<CR>
 
 set tw=0
 
@@ -131,3 +130,8 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
+
+
+nnoremap <CR> o<Esc>
+nnoremap <S-CR> O<Esc>j
+inoremap <S-Tab> <C-V><Tab>
