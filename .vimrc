@@ -60,7 +60,7 @@ call plug#begin('~/.vim/plugged')
   "Plug 'cjrh/vim-conda'
   Plug 'vim-latex/vim-latex'
   Plug 'stuartthomas25/vim-conda'
-  Plug 'terryma/vim-multiple-cursors'
+  Plug 'mg979/vim-visual-multi'
   "Plug 'davidhalter/jedi-vim'
   "Plug 'zchee/deoplete-jedi'
   Plug 'scrooloose/nerdcommenter'
