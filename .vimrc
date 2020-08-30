@@ -60,7 +60,6 @@ call plug#begin('~/.vim/plugged')
   "Plug 'cjrh/vim-conda'
   Plug 'vim-latex/vim-latex'
   Plug 'stuartthomas25/vim-conda'
-  Plug 'mg979/vim-visual-multi'
   "Plug 'davidhalter/jedi-vim'
   "Plug 'zchee/deoplete-jedi'
   Plug 'scrooloose/nerdcommenter'
@@ -72,6 +71,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/goyo.vim'
   Plug 'preservim/nerdtree'
 call plug#end()
+
+if v:version >= 800
+    call plug#begin('~/.vim/plugged')
+
+      Plug 'mg979/vim-visual-multi'
+    call plug#end()
+endif
 
 nnoremap <leader>n :NERDTreeToggleVCS<CR> 
 
