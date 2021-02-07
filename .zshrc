@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/anaconda3/bin/:$HOME/bin:/usr/local/bin:$HOME/Shell\ Scripts/:$PATH
+export PATH=$HOME/anaconda3/bin/:$HOME/bin:/usr/local/bin:$HOME/Shell\ Scripts/:/Users/Stuart/.cargo/bin:/usr/local/opt/binutils/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -179,5 +179,9 @@ ex ()
   fi
 }
 
-alias commit="git commit -m"
-alias add="git add"
+alias gc="git commit -m"
+alias ga="git add"
+alias gt="git status"
+alias bs="brew services"
+alias zrc="vim ~/.zshrc"
+alias aw="ansiweather"

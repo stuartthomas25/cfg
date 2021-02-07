@@ -38,6 +38,7 @@ set guioptions-=L
 map <leader>e :vsplit $MYVIMRC<CR>
 map <leader>s :so $MYVIMRC<CR>
 set shortmess=I
+set cursorline
 
 
 " Delete trailing white space on save, useful for some filetypes ;)
@@ -52,14 +53,14 @@ endfun
 if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
     autocmd FileType python map <buffer> <leader>r :w<CR>:exec '!python' shellescape(@%, 1)<CR>
-
+    autocmd BufRead *.latex :q<CR>
 endif
 
 "Plugins
 call plug#begin('~/.vim/plugged')
   "Plug 'cjrh/vim-conda'
   Plug 'vim-latex/vim-latex'
-  Plug 'stuartthomas25/vim-conda'
+  "Plug 'stuartthomas25/vim-conda'
   Plug 'mg979/vim-visual-multi'
   "Plug 'davidhalter/jedi-vim'
   "Plug 'zchee/deoplete-jedi'
@@ -71,6 +72,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'junegunn/goyo.vim'
   Plug 'preservim/nerdtree'
+  "Plug 'terryma/vim-smooth-scroll'
 call plug#end()
 
 nnoremap <leader>n :NERDTreeToggleVCS<CR> 
@@ -82,9 +84,9 @@ set background=dark
 
 " Some LaTeX config
 let g:Tex_CustomTemplateDirectory = '~/.vim/tex_templates/'
-:inoremap <D-B> <Esc>yiWi\begin{<Esc>$a}<CR>\end{<Esc>pa}<Esc>ko
+:inoremap <C-B> <Esc>yiWi\begin{<Esc>$a}<CR>\end{<Esc>pa}<Esc>ko
 let g:tex_flavor='latex'
-" let g:Tex_CompileRule_pdf='latexmk -pdf; latex -c'
+let g:Tex_CompileRule_pdf='make'
 set iskeyword+=:
 
 if system('hostname -s')=="Nala\n"
@@ -122,7 +124,8 @@ endfunction
 command! -nargs=* Fig call InsertFigure(<f-args>)
 command! -nargs=1 Texn call NewTexFile(<f-args>)
 
-" autocmd FileType tex map <buffer> <leader>r :w<CR>:exec '!latexmk -pdf | !latexmk -c'
+autocmd FileType tex set spell 
+set autowrite
 
 set tw=0
 
