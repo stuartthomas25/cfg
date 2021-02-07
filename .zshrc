@@ -146,6 +146,7 @@ config() {
     ROOT="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"    
     if [ $1 = 'update' ]
     then 
+        eval "$ROOT pull"
         eval "$ROOT add -u"
         eval "$ROOT commit -m '$@'"
         eval "$ROOT push"

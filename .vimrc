@@ -60,8 +60,12 @@ endif
 call plug#begin('~/.vim/plugged')
   "Plug 'cjrh/vim-conda'
   Plug 'vim-latex/vim-latex'
+<<<<<<< HEAD
   "Plug 'stuartthomas25/vim-conda'
   Plug 'mg979/vim-visual-multi'
+=======
+  Plug 'stuartthomas25/vim-conda'
+>>>>>>> 5a053d96074d389ee21136a9057575c8edeaead4
   "Plug 'davidhalter/jedi-vim'
   "Plug 'zchee/deoplete-jedi'
   Plug 'scrooloose/nerdcommenter'
@@ -74,6 +78,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'preservim/nerdtree'
   "Plug 'terryma/vim-smooth-scroll'
 call plug#end()
+
+if v:version >= 800
+    call plug#begin('~/.vim/plugged')
+
+      Plug 'mg979/vim-visual-multi'
+    call plug#end()
+endif
 
 nnoremap <leader>n :NERDTreeToggleVCS<CR> 
 
