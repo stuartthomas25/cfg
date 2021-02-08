@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/stuart/.vim/plugged'
 let g:netrw_dirhist_5='/Users/Stuart/Dropbox'
 let g:netrw_dirhist_4='/Users/Stuart/Documents/Development_Projects/j-party/buzzer'
 let g:netrw_dirhist_3='/Users/Stuart/Documents/Development_Projects/j-party'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_0='/Users/Stuart/anaconda3/envs'
 let g:netrw_dirhist_9='/Users/Stuart/anaconda3/envs/jeopardy'
 let g:netrw_dirhist_8='/Users/Stuart/Desktop'
 let g:netrw_dirhist_7='/Users/Stuart/Documents/School/19 Spring 2020/PHYS352/P-NMR/report'
-let g:netrw_dirhist_6='/Users/Stuart/Documents/School/19 Spring 2020/PHYS352/P-NMR'
