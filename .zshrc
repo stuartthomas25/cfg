@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/anaconda3/bin/:$HOME/bin:/usr/local/bin:$HOME/Shell\ Scripts/:/Users/Stuart/.cargo/bin:/usr/local/opt/binutils/bin:$PATH
+export PATH=/opt/homebrew/bin:/opt/miniforge3/bin:$HOME/bin:/usr/local/bin:$HOME/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"

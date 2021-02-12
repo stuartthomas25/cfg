@@ -1,5 +1,6 @@
 let g:conda_startup_msg_suppress = 1
-set number
+set number relativenumber
+set nu rnu
 
 " Basic stuff
 let mapleader = ","

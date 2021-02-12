@@ -269,7 +269,8 @@ ctrl + alt - w : yabai -m space --layout float
 
 ctrl + alt - backspace : pmset displaysleepnow
 ctrl + alt - delete : pmset sleepnow
-ctrl + alt - m : /Users/Stuart/bin/rotate_display
+ctrl + alt - 0x2C : $HOME/bin/prep_disconnect
+ctrl + alt - m : $HOME/bin/rotate_display
 #
 #
 #
