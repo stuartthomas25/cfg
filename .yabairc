@@ -63,6 +63,8 @@ yabai -m rule --add app="^FaceTime$" manage=off
 yabai -m rule --add app="^Inkscape$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^Simulator$" manage=off
+yabai -m rule --add app="^Digital Color Meter$" manage=off
+yabai -m rule --add app="^Stickies$" manage=off
 
 echo "yabai configuration loaded.."
 brew install yabai --HEAD

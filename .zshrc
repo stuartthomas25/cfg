@@ -122,6 +122,7 @@ alias nf="neofetch --ascii ~/.config/neofetch/ascii/initials.txt --color_blocks 
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 alias rm='trash'
+alias mv='mv -i'
 
 ##
 # Your previous /Users/Stuart/.zprofile file was backed up as /Users/Stuart/.zprofile.macports-saved_2020-04-30_at_17:15:02
@@ -155,6 +156,11 @@ config() {
     fi
 }
 
+mkcd() {
+    mkdir $1
+    cd $1
+}
+
 ex ()
 {
   if [ -f $1 ] ; then
@@ -180,6 +186,7 @@ ex ()
   fi
 }
 
+alias zr="zotcli read"
 alias gc="git commit -m"
 alias ga="git add"
 alias gt="git status"
@@ -187,3 +194,5 @@ alias bs="brew services"
 alias zrc="vim ~/.zshrc"
 alias aw="ansiweather"
 alias rbrew="arch -x86_64 /usr/local/bin/brew"
+alias rconda="arch -x86_64 /opt/miniconda3/bin/conda"
+alias profile="xcrun xctrace record --template 'Time Profiler' --target-stdout - --launch --"
