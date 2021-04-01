@@ -9,11 +9,11 @@ let mapleader = ","
 
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
-try
-set transparency=25
-set blurradius=20
-catch
-endtry
+"try
+""set transparency=0
+""set blurradius=20
+"catch
+"endtry
 
 set foldmethod=indent
 set nofoldenable
@@ -60,6 +60,7 @@ endif
 
 "Plugins
 call plug#begin('~/.vim/plugged')
+  Plug 'kjwon15/vim-transparent'
   "Plug 'vim-latex/vim-latex'
   Plug 'mg979/vim-visual-multi'
   "Plug 'davidhalter/jedi-vim'
