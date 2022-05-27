@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/Users/stuart/Documents/School/Research/Honors Thesis/thesis/final-report.latex'
 let g:netrw_dirhist_8='/Users/stuart/Dropbox/Stuart/dc-junction/paper-notes.latex'
 let g:netrw_dirhist_7='/Users/stuart/Dropbox/Stuart/dc-junction/topo-topo-zero-mode'
 let g:netrw_dirhist_6='/Users/stuart/.vim/plugged'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_3='/Users/Stuart/Documents/Development_Projects/j-party'
 let g:netrw_dirhist_2='/Users/Stuart/Desktop'
 let g:netrw_dirhist_1='/Users/Stuart/Documents/Development_Projects/j-party'
 let g:netrw_dirhist_0='/Users/Stuart/anaconda3/envs'
-let g:netrw_dirhist_9='/Users/Stuart/anaconda3/envs/jeopardy'

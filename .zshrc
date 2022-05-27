@@ -1,8 +1,32 @@
+# Fig pre block. Keep at the top of this file.
+# Fig pre block. Keep at the top of this file.
+export PATH="${PATH}:${HOME}/.local/bin"
+if [[ "$TERM" == 'xterm-256color' ]]; then
+  . "$HOME/.fig/shell/zshrc.pre.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
-export PATH=/opt/homebrew/bin:/opt/miniforge3/bin:$HOME/bin:/usr/local/bin:$HOME/bin:$PATH
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/X11/bin:/Library/Apple/usr/bin
+
+export PATH=/usr/local/bin:$PATH
+
+if [ $(arch) = 'arm64' ]; then 
+    export PATH=/opt/homebrew/bin:$PATH
+    export PATH=/Applications/Julia-1.8.app/Contents/Resources/julia/bin/:$PATH
+else
+    export PATH=$PATH
+fi
+
+export PATH=$HOME/bin:/usr/local/texlive/2021/bin/universal-darwin:$PATH
+
+export PATH=$HOME/.emacs.d/bin:$PATH
+
+export MANPATH=/usr/local/texlive/2021/texmf-dist/doc/man:$MANPATH
+export INFOPATH=/usr/local/texlive/2021/texmf-dist/doc/info:$INFOPATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR=vim
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -99,23 +123,42 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 unsetopt PROMPT_SP
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/opt/miniforge3/etc/profile.d/conda.sh"
+if [ $(arch) = 'arm64' ]; then 
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/opt/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
     else
-        export PATH="/opt/miniforge3/bin:$PATH"
+        if [ -f "/opt/miniforge3/etc/profile.d/conda.sh" ]; then
+            . "/opt/miniforge3/etc/profile.d/conda.sh"
+        else
+            export PATH="/opt/miniforge3/bin:$PATH"
+        fi
     fi
+    unset __conda_setup
+else
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+            . "/opt/miniconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/opt/miniconda3/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
 fi
-unset __conda_setup
+
 # <<< conda initialize <<<
 
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+if [[ "$TERM" == 'xterm-256color' ]]; then
+  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+fi
 
 alias nf="neofetch --ascii ~/.config/neofetch/ascii/initials.txt --color_blocks off --cpu_display bar --battery_display bar --memory_display bar --disk_display bar --colors 2 2 2 0 7 7 --ascii_colors 0 2 --disk_show '/dev/disk1s1'"
 
@@ -128,15 +171,9 @@ alias mv='mv -i'
 # Your previous /Users/Stuart/.zprofile file was backed up as /Users/Stuart/.zprofile.macports-saved_2020-04-30_at_17:15:02
 ##
 
-# MacPorts Installer addition on 2020-04-30_at_17:15:02: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
 
 
-# Setting PATH for Python 3.8
 # The original version is saved in .zprofile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
-export PATH
 
 alias ..='cd ..'
 alias lt='ls -ltr'
@@ -186,6 +223,14 @@ ex ()
   fi
 }
 
+conda_cd ()
+{
+    cd $1
+    if [ -e .condaenv ] ; then
+        conda activate $(cat .condaenv)
+    fi
+}
+
 alias zr="zotcli read"
 alias gc="git commit -m"
 alias ga="git add"
@@ -195,4 +240,30 @@ alias zrc="vim ~/.zshrc"
 alias aw="ansiweather"
 alias rbrew="arch -x86_64 /usr/local/bin/brew"
 alias rconda="arch -x86_64 /opt/miniconda3/bin/conda"
+alias preview="open -a Preview"
 alias profile="xcrun xctrace record --template 'Time Profiler' --target-stdout - --launch --"
+alias julia_itensors="julia --sysimage /Users/stuart/.julia/sysimages/sys_itensors.so -e 'using ITensors' -i"
+alias cd="conda_cd"
+cd . # so ^ runs on new tab
+#compdef toggl
+_toggl() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _TOGGL_COMPLETE=complete-zsh  toggl)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_toggl" ]]; then
+  compdef _toggl toggl
+fi
+
+# if [[ -n ${INSIDE_EMACS} ]]; then
+#     # This shell runs inside an Emacs *shell*/*term* buffer.
+#     prompt walters
+#     unsetopt zle
+# fi
+alias julia1.7="/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia"
+
+# Fig post block. Keep at the bottom of this file.
+if [[ "$TERM" == 'xterm-256color' ]]; then
+# Fig post block. Keep at the bottom of this file.
+  . "$HOME/.fig/shell/zshrc.post.zsh"
+fi
+
+# Fig post block. Keep at the bottom of this file.

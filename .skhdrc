@@ -109,10 +109,9 @@
 
 # open terminal
 # ctrl + alt - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
-ctrl + alt - 0 : ~/bin/newwindow /Applications/MacVim.app
-ctrl + alt - return : ~/bin/newwindow ~/Applications/iTerm.app
+ctrl + alt - return : newwindow /Applications/iTerm.app
 ctrl + alt - 8 : osascript -e 'tell application "Finder" to make new Finder window' 
-ctrl + alt - 9 : ~/bin/newwindow /Applications/Safari.app
+ctrl + alt - 9 : newwindow /Applications/Safari.app
 
 
 # focus window
@@ -149,13 +148,13 @@ ctrl + alt - b : yabai -m space --balance
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
 ctrl + alt - n : yabai -m space --create && \
-                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
                   yabai -m window --space "${index}" && \
                   yabai -m space --focus "${index}"
 
 # create desktop and follow focus - uses jq for parsing json (brew install jq)
 shift + ctrl + alt - n : yabai -m space --create && \
-                index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
                 yabai -m space --focus "${index}"
 
 # destroy desktop
@@ -249,8 +248,8 @@ ctrl + alt - f : yabai -m window --toggle native-fullscreen
 ctrl + alt - e : yabai -m window --toggle split
 
 # float / unfloat window and center on screen
-ctrl + alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 4:4:1:1:2:2
+#ctrl + alt - t : yabai -m window --toggle float;\
+          #yabai -m window --grid 4:4:1:1:2:2
 
 # toggle sticky (show on all spaces)
 ctrl + alt - s : yabai -m window --toggle sticky
